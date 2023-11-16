@@ -42,9 +42,8 @@ public class Game {
     defined as text to support texts longer than varChar which only supports 255 characters. */
     private String shortDescription;
 
-    /* Defining in the table that this column containing this field is 
+    @Column(columnDefinition = "TEXT") /* Defining in the table that this column containing this field is 
     defined as text to support texts longer than varChar which only supports 255 characters. */
-    @Column(columnDefinition = "TEXT")
     private String longDescription;
 
     @Column(name = "game_year") /* Setting the 'game year' name in table, because the word 'year'
@@ -136,6 +135,11 @@ public class Game {
         this.score = score;
     }
 
+    /*
+     * toString method
+     * used to print an Object
+     * with the especified notation.
+    */
     // @Override
     // public String toString() {
     //     return
@@ -152,11 +156,23 @@ public class Game {
     //     ;
     // }
 
+    /*
+     * hashCode method
+     * used for compare two Objects
+     * by an attribute and return
+     * if they are the same.
+    */
     @Override
     public int hashCode() {
         return Objects.hash(id);
     }
 
+    /*
+     * equals method
+     * used for compare two Objects
+     * by an attribute and return
+     * if they are the same.
+    */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
