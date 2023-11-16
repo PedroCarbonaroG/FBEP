@@ -13,29 +13,44 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 /*
+ * @NOTATIONS:
+ * This project is a project for beginners, so all parts 
+ * of the code will be commented for future studies and 
+ * reviews to solidify knowledge and practice.
+*/
+
+/*
  * Game entitie
 */
-@Entity
-@Table(name = "tb_game")
+@Entity /* Instantiating the 'Game Entity' table in dataBase. */
+@Table(name = "tb_game") /* Setting the name table. */
 public class Game {
     
     /*
      * Global Game Attributes
     */
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id /* Setting in the table that this attribute is a primary key 'Id'. */
+    @GeneratedValue(strategy = GenerationType.IDENTITY) /* Setting autoincrement in this attribute table. */
     private short id;
 
     private String title;
     private String genre;
-    private String plataforms;
+    private String platforms;
     private String imgUrl;
+
+    @Column(columnDefinition = "TEXT") /* Defining in the table that this column containing this field is 
+    defined as text to support texts longer than varChar which only supports 255 characters. */
     private String shortDescription;
+
+    /* Defining in the table that this column containing this field is 
+    defined as text to support texts longer than varChar which only supports 255 characters. */
+    @Column(columnDefinition = "TEXT")
     private String longDescription;
 
-    @Column(name = "game_year")
+    @Column(name = "game_year") /* Setting the 'game year' name in table, because the word 'year'
+    is an reserved keyWord in SQL, so needs to change for another name.*/
     private Integer year;
-    
+
     private Double score;
 
     /*
@@ -43,7 +58,7 @@ public class Game {
     */
     public Game() {
     }
-    public Game(short id, String title, Integer year, String genre, String plataforms,
+    public Game(short id, String title, Integer year, String genre, String platforms,
     Double score, String imgUrl, String shortDescription, String longDescription) {
         /*
          * Setting attributes
@@ -51,7 +66,7 @@ public class Game {
         this.id = id;
         this.title = title;
         this.genre = genre;
-        this.plataforms = plataforms;
+        this.platforms = platforms;
         this.imgUrl = imgUrl;
         this.shortDescription = shortDescription;
         this.longDescription = longDescription;
@@ -71,8 +86,8 @@ public class Game {
     public String getGenre() {
         return genre;
     }
-    public String getPlataforms() {
-        return plataforms;
+    public String getPlatforms() {
+        return platforms;
     }
     public String getImgUrl() {
         return imgUrl;
@@ -102,8 +117,8 @@ public class Game {
     public void setGenre(String genre) {
         this.genre = genre;
     }
-    public void setPlataforms(String plataforms) {
-        this.plataforms = plataforms;
+    public void setPlatforms(String platforms) {
+        this.platforms = platforms;
     }
     public void setImgUrl(String imgUrl) {
         this.imgUrl = imgUrl;
@@ -127,7 +142,7 @@ public class Game {
     //     "Id: " + this.getId() + 
     //     "Title: " + this.getTitle() + 
     //     "Genre: " + this.getGenre() + 
-    //     "Plataforms: " + this.getPlataforms() + 
+    //     "Platforms: " + this.getPlatforms() + 
     //     "ImgUrl: " + this.getImgUrl() + 
     //     "ShortDescription: " + this.getShortDescription() +
     //     "longDescription: " + this.getLongDescription() +
