@@ -11,7 +11,7 @@ import com.fbep.FBEP.dto.GameMinDTO;
 import com.fbep.FBEP.services.GameService;
 
 @RestController
-@RequestMapping(value = "/games")
+@RequestMapping(value = "/games") /* defining the URL request */
 public class GameController {
     
     @Autowired
